@@ -1,21 +1,198 @@
+/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #3b82f6; /* Blue */
+  --color-primary-dark: #2563eb; /* Darker Blue */
+  --color-secondary: #f1f5f9; /* Light Gray */
+  --color-text: #1f2937; /* Dark Gray */
+  --color-text-light: #6b7280; /* Lighter Gray */
+  --color-success: #10b981; /* Green */
+  --color-danger: #ef4444; /* Red */
+  --color-white: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/* --- Header --- */
+.header-container {
+  @apply flex justify-between items-center p-4 rounded-t-lg text-white;
+  background-color: var(--color-primary);
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.header-title-container{
+    @apply flex items-center;
+}
+
+.header-title-icon {
+  @apply h-7 w-7 text-blue-200 mr-2;
+}
+
+.header-title {
+  @apply text-2xl md:text-3xl font-bold tracking-tight;
+}
+
+.header-connect-button {
+ @apply px-6 py-2 rounded-md font-semibold text-white border border-white hover:bg-white hover:text-blue-600 transition-colors;
+}
+.header-connect-button-icon{
+    @apply h-5 w-5 mr-2;
+}
+.header-user-info {
+  @apply flex items-center gap-4;
+}
+
+.header-points-badge {
+  @apply px-4 py-2 rounded-full font-semibold text-blue-600 bg-white;
+}
+
+.header-address {
+  @apply text-sm bg-white/20 px-3 py-1 rounded-full font-mono truncate;
+}
+.disconnect-button{
+    @apply px-4 py-2 bg-white text-blue-600 rounded-md hover:bg-red-100 font-semibold;
+}
+
+/* --- Card --- */
+.card-container {
+  @apply bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden;
+}
+
+.card-header {
+  @apply text-xl font-semibold p-4 border-b border-gray-200 bg-gray-50;
+}
+.card-title{
+    @apply flex items-center;
+}
+
+.card-content {
+  @apply p-4;
+}
+.card-list{
+  @apply divide-y divide-gray-200;
+}
+/* --- Task Item --- */
+.task-item {
+  @apply flex justify-between items-center py-3 px-4 hover:bg-gray-100 transition-colors cursor-pointer;
+}
+
+.task-details {
+    @apply flex-1;
+}
+
+.task-name {
+  @apply text-lg font-medium text-gray-800;
+}
+
+.task-info {
+  @apply text-sm text-gray-600 mt-1;
+}
+
+.complete-button {
+  @apply px-5 py-2 rounded-md font-semibold transition-colors;
+}
+.complete-button-available{
+    @apply bg-blue-500 hover:bg-blue-600 text-white;
+}
+.complete-button-completed{
+    @apply bg-green-500 text-white cursor-not-allowed;
+}
+
+/* --- Stats --- */
+.stats-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.stat-item {
+    @apply bg-white rounded-xl shadow-md p-4 text-center border border-gray-200;
+}
+
+.stat-label {
+  @apply text-sm text-gray-600 font-medium uppercase tracking-wide;
+}
+
+.stat-value {
+ @apply text-2xl font-bold text-gray-900 mt-1;
+}
+
+/* --- Modal --- */
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50;
+}
+
+.modal-content {
+  @apply bg-white rounded-xl shadow-2xl p-6 w-full max-w-md;
+}
+.modal-header{
+  @apply flex items-center justify-between mb-4;
+}
+.modal-title {
+  @apply text-xl font-semibold;
+}
+
+.modal-close {
+  @apply text-gray-500 hover:text-gray-700;
+}
+
+.modal-body {
+  @apply mb-4 text-gray-700;
+}
+
+.modal-footer {
+  @apply flex justify-end gap-2;
+}
+
+.loading-overlay {
+  @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-10 rounded-md;
+}
+
+.loading-spinner {
+  @apply animate-spin h-5 w-5 border-4 border-blue-500 border-t-transparent rounded-full;
+}
+
+/* --- Leaderboard --- */
+.leaderboard-item {
+     @apply flex items-center justify-between p-4 hover:bg-gray-50 transition-colors;
+}
+.leaderboard-item-info{
+    @apply flex items-center gap-4 flex-1;
+}
+
+.leaderboard-rank {
+   @apply w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm;
+}
+
+.leaderboard-rank-1 {
+     @apply bg-yellow-400 text-white;
+}
+
+.leaderboard-rank-2 {
+     @apply bg-gray-400 text-white;
+}
+
+.leaderboard-rank-3 {
+    @apply bg-orange-400 text-white;
+}
+
+.leaderboard-rank-other {
+    @apply bg-gray-200 text-gray-700;
+}
+
+.leaderboard-address {
+ @apply font-mono text-gray-700 truncate;
+}
+.leaderboard-badge {
+     @apply bg-gray-200 text-gray-800;
+}
+/* --- Main Container --- */
+
+.main-container{
+    @apply bg-gray-100 min-h-screen p-4 flex items-center justify-center;
+}
+.content-wrapper{
+    @apply max-w-7xl mx-auto space-y-6 w-full;
+}
+.grid-container{
+    @apply grid md:grid-cols-2 gap-6;
 }
